@@ -23,29 +23,8 @@ export default {};
   div {
     margin-bottom: 20px;
   }
-  .animated {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 20px;
-    font-size: 20px;
-    cursor: pointer;
-    text-align: center;
-    animation: flash 2s linear infinite;
-  }
 }
-@keyframes flash {
-  0%,
-  50%,
-  to {
-    opacity: 1;
-  }
 
-  25%,
-  75% {
-    opacity: 0;
-  }
-}
 </style>
 
 
