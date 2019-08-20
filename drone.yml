@@ -17,17 +17,17 @@ pipeline:
       - 'docker push registry.cn-beijing.aliyuncs.com/my-web/web'
     when: 
       branch: master  
-  # rancher-online:
-  #   image: peloton/drone-rancher
-  #   url: 'https://rancher.11vx.cn'
-  #   access_key: B24653F95507063ACE6A
-  #   secret_key: seyTtWvHaAUXjuyQBxH5BarRXZcZDaKvb9epCZgM
-  #   service: app/web 
-  #   docker_image: 'registry.cn-beijing.aliyuncs.com/my-web/web'
-  #   start_first: false
-  #   confirm: true
-  #   timeout: 300 
-  #   when:
-  #     branch: master 
+  rancher-online:
+    image: peloton/drone-rancher
+    url: 'https://rancher.11vx.cn'
+    access_key: B24653F95507063ACE6A
+    secret_key: seyTtWvHaAUXjuyQBxH5BarRXZcZDaKvb9epCZgM
+    service: app/web 
+    docker_image: 'registry.cn-beijing.aliyuncs.com/my-web/web'
+    start_first: false
+    confirm: true
+    timeout: 300 
+    when:
+      branch: master 
 
   
