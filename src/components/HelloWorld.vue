@@ -27,6 +27,7 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <div style="text-align: center;">网站备案：京ICP备19031081号</div>
   </div>
 </template>
 
