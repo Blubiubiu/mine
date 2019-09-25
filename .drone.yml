@@ -1,0 +1,35 @@
+# workspace:
+#   base: /drone/src
+#   path: ./
+pipeline:
+  
+  build-master:
+    image: 'node:10.6.0'
+    commands:
+      - 'npm install'
+      - 'npm run build'
+    when:
+      branch: master
+  public-online:      
+    image: plugins/docker 
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
+    commands:
+      - 'docker login --username=hesouli -p Cptbtptp123 registry.cn-beijing.aliyuncs.com'
+      - 'docker build --rm -t web .'
+      - 'docker tag web registry.cn-beijing.aliyuncs.com/my-web/web'
+      - 'docker push registry.cn-beijing.aliyuncs.com/my-web/web'
+    when: 
+      branch: master  
+  rancher-online:
+    image: peloton/drone-rancher
+    url: 'https://rancher.11vx.cn'
+    access_key: B24653F95507063ACE6A
+    secret_key: seyTtWvHaAUXjuyQBxH5BarRXZcZDaKvb9epCZgM
+    service: app/web 
+    docker_image: 'registry.cn-beijing.aliyuncs.com/my-web/web'
+    start_first: false
+    confirm: true
+    timeout: 300 
+    when:
+      branch: master 
