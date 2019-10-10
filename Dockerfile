@@ -4,4 +4,4 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf *
 COPY dist ./
 EXPOSE 7001
-CMD ["nginx", "-g", "daemon off;"]fi
+CMD ["nginx", "-g", "daemon off;"]
