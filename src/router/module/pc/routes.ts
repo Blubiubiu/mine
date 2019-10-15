@@ -5,11 +5,11 @@ export default [
   {
     path: "/",
     name: "home",
-    component: Home,
+    component: () => import("@/views/Home.vue"),
   },
   {
     path: "/resource",
     name: "resource",
-    component: Resource,
+    component: () => import("@/views/pc/Resource.vue"),
   }
 ];
