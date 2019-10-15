@@ -2,10 +2,7 @@ import http from "./middleware";
 
 const callbackFn = (res: any, fn: any, Errfn: any) => {
   if (
-    res.data.code === 1 ||
-    res.data.code === 200 ||
-    res.data.errno === 200 ||
-    res.data.errno === 0
+    res.data.code === 1
   ) {
     fn && fn(res);
   } else {
