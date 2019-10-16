@@ -1,8 +1,9 @@
-const path = require('path');
+const path = require("path");
 const resolve = dir => {
   return path.join(__dirname, dir);
 };
 module.exports = {
+  publicPath: "//cdn.11vx.cn/",
   chainWebpack: config => {
     config.resolve.alias
       .set("@", resolve("src")) // key,value自行定义，比如.set('@@', resolve('src/components'))
@@ -24,6 +25,15 @@ module.exports = {
         pathRewrite: {
           // 需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
           "^/api": "/"
+        }
+      },
+      "/tuku": {
+        target: "http://up.imgapi.com/",
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          // 需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
+          "^/tuku": "/"
         }
       }
     },

@@ -49,7 +49,14 @@ class HttpRequest {
     );
   }
   public request(options: any) {
-    options = Object.assign(this.getInsideConfig(), options);
+    if (options.url === "/tuku") {
+        const newOptions = Object.assign({}, this.getInsideConfig(), {
+            baseURL: 'tuku'
+        });
+        options = Object.assign(newOptions, options);
+    } else {
+        options = Object.assign(this.getInsideConfig(), options);
+    }
     const instance = axios.create();
     this.interceptors(instance, options.url);
     return instance(options);

@@ -1,10 +1,10 @@
 import HttpRequest from "./axios";
 
-let url = "/api";
+let url;
 if (process.env.NODE_ENV !== "development") {
   url = "https://api.11vx.cn";
 } else {
-  url = url;
+  url = "/api";
 }
 
 const http = new HttpRequest(url);

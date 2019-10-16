@@ -1,15 +1,21 @@
-import Home from "@/views/Home.vue";
-import Resource from "@/views/pc/Resource.vue";
+const Home = () => import("@/views/Home.vue");
+const Resource = () => import("@/views/pc/Resource.vue");
+const Upload = () => import("@/views/pc/Upload.vue");
 
 export default [
   {
     path: "/",
     name: "home",
-    component: () => import("@/views/Home.vue"),
+    component: Home,
   },
   {
     path: "/resource",
     name: "resource",
-    component: () => import("@/views/pc/Resource.vue"),
+    component: Resource,
+  },
+  {
+    path: "/upload",
+    name: "upload",
+    component: Upload,
   }
 ];
