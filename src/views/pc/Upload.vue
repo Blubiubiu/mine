@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { insertComicList } from "@/api/pc/comic";
+import { qiniuToken } from "@/api/pc/comic";
 
 export default Vue.extend({
   name: "upload",
@@ -17,11 +17,8 @@ export default Vue.extend({
   methods: {
     upload() {
       const _TIME = new Date().getTime();
-      insertComicList({
-        token:
-          "2ab0ffacdc10ae4b69550b50c9bca1dba689625a:qMsJErPleUvh6yYHSUezw-tt6-8=:eyJkZWFkbGluZSI6MTU3MTIxNjI0MSwiYWN0aW9uIjoiZ2V0IiwidWlkIjoiNzAxNjAyIiwiYWlkIjoiMTYzODIxNyIsImZyb20iOiJmaWxlIn0=",
-          deadline: _TIME,
-          aid: _TIME
+      qiniuToken((res: any) => {
+          console.log(res)
       });
     }
   }

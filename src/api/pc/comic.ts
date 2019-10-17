@@ -1,10 +1,10 @@
 import axios from "../../http/request";
 
-// 添加数据列表
-export const insertComicList = (...rest: any[]) => {
+// 获取上传七牛云所需token
+export const qiniuToken = (...rest: any[]) => {
   return axios({
-    url: "/tuku",
-    method: "post",
+    url: "/uploadToken",
+    method: "get",
     ...rest
   });
 };

@@ -3,7 +3,7 @@ const resolve = dir => {
   return path.join(__dirname, dir);
 };
 module.exports = {
-  publicPath: "//cdn.11vx.cn/",
+  publicPath: process.env.NODE_ENV === "production" ? "//cdn.11vx.cn/" : "",
   chainWebpack: config => {
     config.resolve.alias
       .set("@", resolve("src")) // key,value自行定义，比如.set('@@', resolve('src/components'))
